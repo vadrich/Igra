@@ -7,7 +7,8 @@ public class BgMove : MonoBehaviour
     Renderer render;
     public Transform charTR;
     private Transform bgTR;
-    public float speed = 0.1f;
+    public float speedRotate = 0.1f;
+    public float move = 40;
     void Start()
     {
         render = GetComponent<Renderer>();
@@ -19,11 +20,11 @@ public class BgMove : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         Vector3 direction = new Vector3(x, 0, 0);
-        bgTR.position = Vector2.Lerp(bgTR.position, charTR.position,Time.deltaTime);
+        bgTR.position = Vector2.Lerp(bgTR.position, charTR.position,Time.deltaTime * move);
         bgTR.position = new Vector3(bgTR.position.x, bgTR.position.y, 0);
         if (direction.sqrMagnitude > 0.2f)
         {
-            render.material.mainTextureOffset += new Vector2(direction.x * speed * Time.deltaTime, 0);
+            render.material.mainTextureOffset += new Vector2(direction.x * speedRotate * Time.deltaTime, 0);
         }
     }
 }

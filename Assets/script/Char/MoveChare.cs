@@ -63,7 +63,7 @@ public class MoveChare : MonoBehaviour
     }
     private void Jumping()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             rigidbodyPerson.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             onJumpingPerson?.Invoke(true);
