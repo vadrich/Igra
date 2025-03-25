@@ -8,6 +8,7 @@ public class EnemyMove : MonoBehaviour
     private Transform trZ;
     private Rigidbody2D rbZ;
     public float speed = 5;
+    public float damage = 10;
     private float moveInput;
     private float distance;
     public float jumpForce = 4;
@@ -58,6 +59,11 @@ public class EnemyMove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isJumping = true;
+        if(collision.gameObject.tag == "Player")
+        {
+            HP hp = collision.gameObject.GetComponent<HP>();
+            hp.TakeDamage(damage);
+        }
     }
 
     IEnumerator JumpingCoroutine()
