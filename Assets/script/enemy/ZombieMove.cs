@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public class ZombieMove : MonoBehaviour
 {
+    private ZombieAnim anim;
+    private ZombieAttack attack;
+
     public Transform trChar;
     private Transform trZ;
     private Rigidbody2D rbZ;
     public float speed = 5;
-    public float damage = 10;
     private float moveInput;
     private float distance;
     public float jumpForce = 4;
-    public float minDist = 12;
+    public float minDistFollow = 12;
     public float timer = 4;
     private bool isFollow = false;
     private bool isJumping = false;
     private bool isOldPoint = false;
+
     
     private Vector3 currentPoint;
 
@@ -24,6 +27,8 @@ public class EnemyMove : MonoBehaviour
     {
         trZ = GetComponent<Transform>();
         rbZ = GetComponent<Rigidbody2D>();
+        anim = GetComponent<ZombieAnim>();
+        attack = GetComponent<ZombieAttack>();
     }
     private void Start()
     {
@@ -34,7 +39,7 @@ public class EnemyMove : MonoBehaviour
     {
         Turning();
         Chekdistance();
-        if (distance <= minDist)
+        if (IsMinDistance(minDistFollow))
         {
             Follow();
             isFollow = true;
@@ -59,11 +64,6 @@ public class EnemyMove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isJumping = true;
-        if(collision.gameObject.tag == "Player")
-        {
-            HP hp = collision.gameObject.GetComponent<HP>();
-            hp.TakeDamage(damage);
-        }
     }
 
     IEnumerator JumpingCoroutine()
@@ -104,6 +104,7 @@ public class EnemyMove : MonoBehaviour
         float x = moveInput * speed;
         float y = rbZ.velocity.y;
         rbZ.velocity = new Vector2(x, y);
+        anim.MoveAnim(attack.isAttack,x);
     }
 
     void Chekdistance()
@@ -120,5 +121,11 @@ public class EnemyMove : MonoBehaviour
             timer = Random.Range(3, 7);
         }
         Move();
+    }
+
+    public bool IsMinDistance(float minDistance)
+    {
+        if (distance <= minDistance) return true;
+        else return false;
     }
 }

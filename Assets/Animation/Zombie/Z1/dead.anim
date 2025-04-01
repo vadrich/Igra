@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DeadZ
+  m_Name: dead
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -24,25 +24,25 @@ AnimationClip:
       value: {fileID: 21300000, guid: 280ba315f63f2a2438b918e12ba9e6ed, type: 3}
     - time: 0.06666667
       value: {fileID: 21300000, guid: 145eb230f5f97b6498094f17c9bc6479, type: 3}
-    - time: 0.13333334
+    - time: 0.11666667
       value: {fileID: 21300000, guid: cd628937976912b4fa520f46969a509f, type: 3}
-    - time: 0.2
+    - time: 0.18333334
       value: {fileID: 21300000, guid: 5d3d30921e40f614988e57d36077472b, type: 3}
-    - time: 0.26666668
+    - time: 0.25
       value: {fileID: 21300000, guid: be6f779fa52251145874e86d766cf93e, type: 3}
-    - time: 0.33333334
+    - time: 0.3
       value: {fileID: 21300000, guid: a32dfe599980fe8409ab49ca4547e43d, type: 3}
-    - time: 0.41666666
+    - time: 0.36666667
       value: {fileID: 21300000, guid: c94d4f58ba678ee41bb4873c69901ef1, type: 3}
-    - time: 0.48333332
+    - time: 0.41666666
       value: {fileID: 21300000, guid: 51c0f69590005ef43ab0c7e2bc6d4159, type: 3}
-    - time: 0.55
+    - time: 0.48333332
       value: {fileID: 21300000, guid: cdb605fb59b7e574984a9ef61bde1751, type: 3}
-    - time: 0.6166667
+    - time: 0.55
       value: {fileID: 21300000, guid: 1909a4fea1fec4f4b948b92afff6bb42, type: 3}
-    - time: 0.68333334
+    - time: 0.6
       value: {fileID: 21300000, guid: 59aca58536650154d9e61dfd8c543217, type: 3}
-    - time: 0.75
+    - time: 0.6666667
       value: {fileID: 21300000, guid: 75f31e772afb0f0418250d7f0b66de37, type: 3}
     attribute: m_Sprite
     path: 
@@ -83,12 +83,12 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.76666665
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

@@ -939,6 +939,8 @@ GameObject:
   - component: {fileID: 1012184855}
   - component: {fileID: 1012184854}
   - component: {fileID: 1012184859}
+  - component: {fileID: 1012184860}
+  - component: {fileID: 1012184861}
   m_Layer: 0
   m_Name: ZombieM
   m_TagString: Untagged
@@ -956,7 +958,7 @@ Animator:
   m_GameObject: {fileID: 1012184853}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2f615ff63230eb1448958cd719189ff3, type: 2}
+  m_Controller: {fileID: 9100000, guid: f550ed1aa0e0eaa439a4dd3f303d7f71, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1110,10 +1112,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trChar: {fileID: 1588817734}
   speed: 5
-  damage: 10
   jumpForce: 7
-  minDist: 12
+  minDistFollow: 12
   timer: 4
+--- !u!114 &1012184860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012184853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be70220fd1610114ba48cdaecb8d4c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1012184861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012184853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46edc9eaebefd3d42ba064a7077679f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  minDistAtack: 3
+  isAttack: 0
 --- !u!1 &1177737742
 GameObject:
   m_ObjectHideFlags: 0
@@ -12872,7 +12900,7 @@ Transform:
   m_GameObject: {fileID: 1588817729}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -127, y: -3.8, z: 0}
+  m_LocalPosition: {x: -13.8, y: -9.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

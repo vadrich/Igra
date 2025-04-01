@@ -7,6 +7,7 @@ using UnityEngine;
 public class MoveChare : MonoBehaviour
 {
 
+
     public event Action<float> onMovePerson;
     public event Action<bool> onJumpingPerson;
     public event Action<bool> onSliderPerson;

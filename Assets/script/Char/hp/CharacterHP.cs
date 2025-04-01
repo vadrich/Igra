@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HP : MonoBehaviour
+public class CharacterHP : MonoBehaviour
 {
     public float currentHP = 100;
     private Image HPimage;
