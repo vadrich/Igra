@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieAttack : MonoBehaviour
 {
-    public float damage = 10;
+    public float damage = 5;
     public float minDistAtack = 3;
-    public bool isAttack = false;
+    public float waitTime = 0;
+    public float intervalTime = 0.5f;
+    public bool isAttack;
     private ZombieAnim anim;
     private ZombieMove move;
 
@@ -24,8 +24,6 @@ public class ZombieAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            CharacterHP hp = collision.gameObject.GetComponent<CharacterHP>();
-            StartCoroutine(AttackCoroutine(hp));
             anim.AtackAnim(true);
             isAttack = true;
         }
@@ -35,32 +33,27 @@ public class ZombieAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            CharacterHP hp = collision.gameObject.GetComponent<CharacterHP>();
-            StopCoroutine(AttackCoroutine(hp));
             anim.AtackAnim(false);
             isAttack = false;
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            isAttack = true;
-        }
-        else
-        {
-            isAttack =false;
+            CharacterHP hp = collision.gameObject.GetComponent<CharacterHP>();
+            WaitTime(hp);
         }
     }
 
-    private IEnumerator AttackCoroutine(CharacterHP hp)
+    private void WaitTime(CharacterHP hp)
     {
-        while (isAttack)
+        if (waitTime <= Time.time)
         {
-            yield return new WaitForSeconds(0.5f);
+            waitTime = Time.time + intervalTime;
             hp.TakeDamage(damage);
+            Debug.Log("takeDamage");
         }
     }
-
 }

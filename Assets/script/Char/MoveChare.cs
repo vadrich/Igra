@@ -7,13 +7,15 @@ using UnityEngine;
 public class MoveChare : MonoBehaviour
 {
 
-
+    
     public event Action<float> onMovePerson;
     public event Action<bool> onJumpingPerson;
     public event Action<bool> onSliderPerson;
 
     private Rigidbody2D rigidbodyPerson;
     private Transform transformPerson;
+    public Transform startPointBullet;
+    public Transform firePartTR;
 
     public float speed = 5f;
     public float slideSpeed = 10f;
@@ -85,10 +87,15 @@ public class MoveChare : MonoBehaviour
         if (horizontal < 0f)
         {
             transform.localScale = new Vector3(-1, 1, 0);
+            startPointBullet.rotation = Quaternion.Euler( new Vector3(0, 180, 0));
+            firePartTR.rotation = Quaternion.Euler( new Vector3(0, 270, 0));
+            
         }
         else if (horizontal > 0f)
         {
             transform.localScale = new Vector3(1, 1, 0);
+            startPointBullet.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            firePartTR.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
         }
 
     }
